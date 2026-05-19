@@ -1,0 +1,218 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Hanken Grotesk via Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap");
+
+/*
+ * Keuzekompas — playful, mobile-first design system.
+ * Cream background, deep navy ink, bold orange accents,
+ * with mint, sun-yellow, and electric-indigo support colors.
+ */
+
+@theme inline {
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-3xl: 44px;
+  --radius-pill: 999px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --color-orange: var(--orange);
+  --color-orange-soft: var(--orange-soft);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-sun: var(--sun);
+  --color-sun-soft: var(--sun-soft);
+  --color-indigo: var(--indigo);
+  --color-indigo-soft: var(--indigo-soft);
+}
+
+:root {
+  --radius: 1.25rem;
+
+  /* Brand */
+  --cream: oklch(0.965 0.018 92);
+  --ink: oklch(0.235 0.04 255);
+  --orange: oklch(0.71 0.18 42);
+  --orange-soft: oklch(0.82 0.1 50);
+  --mint: oklch(0.82 0.08 165);
+  --mint-soft: oklch(0.9 0.05 165);
+  --sun: oklch(0.85 0.14 80);
+  --sun-soft: oklch(0.92 0.08 85);
+  --indigo: oklch(0.52 0.18 270);
+  --indigo-soft: oklch(0.75 0.1 270);
+
+  /* Semantic */
+  --background: #FEF8F3;
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--cream);
+  --secondary: oklch(0.93 0.015 90);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.93 0.012 90);
+  --muted-foreground: oklch(0.5 0.02 260);
+  --accent: var(--orange);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6 0.22 28);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.88 0.02 90);
+  --input: oklch(0.88 0.02 90);
+  --ring: var(--orange);
+}
+
+.dark { /* not used but kept */
+  --background: var(--ink);
+  --foreground: var(--cream);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+    scrollbar-gutter: stable;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Pill button */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.15s ease, background-color 0.2s ease, opacity 0.2s ease;
+    user-select: none;
+  }
+  .btn-pill:active { transform: scale(0.97); }
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { background: oklch(0.18 0.04 255); }
+  .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-orange { background: var(--orange); color: white; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+
+  /* Chip / tag */
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.5rem 0.95rem;
+    border-radius: var(--radius-pill);
+    background: white;
+    border: 1px solid var(--border);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.15s ease;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--ink); }
+  .chip-mint { background: var(--mint); border-color: transparent; color: white; }
+  .chip-orange { background: var(--orange); border-color: transparent; color: white; }
+  .chip-sun { background: var(--sun); border-color: transparent; color: white; }
+  .chip-indigo { background: var(--indigo); border-color: transparent; color: white; }
+
+  /* Surface card */
+  .surface {
+    background: white;
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--border);
+  }
+
+  /* Input */
+  .ti {
+    width: 100%;
+    border-radius: var(--radius-pill);
+    background: white;
+    border: 1px solid var(--border);
+    padding: 0.95rem 1.25rem;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ti:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 4px oklch(0.71 0.18 42 / 0.2); }
+  .ti::placeholder { color: oklch(0.6 0.02 260); }
+  
+  /* Show number input spinners always on mobile */
+  input[type="number"].ti::-webkit-outer-spin-button,
+  input[type="number"].ti::-webkit-inner-spin-button {
+    opacity: 1;
+  }
+
+  /* Round icon button */
+  .icon-btn {
+    width: 44px; height: 44px;
+    border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--ink);
+    color: var(--cream);
+    transition: transform 0.15s ease;
+  }
+  .icon-btn:active { transform: scale(0.92); }
+
+  /* Star compass background motif */
+  .stars-bg {
+    background-image: radial-gradient(circle at 20% 10%, oklch(0.85 0.14 80 / 0.35) 0, transparent 35%),
+                      radial-gradient(circle at 90% 80%, oklch(0.82 0.08 165 / 0.35) 0, transparent 40%),
+                      radial-gradient(circle at 60% 40%, oklch(0.71 0.18 42 / 0.18) 0, transparent 40%);
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+  }
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: #FFB89C;
+    border-radius: 10px;
+  }
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: #FF6C3C;
+    border-radius: 10px;
+  }
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: #FF5520;
+  }
+}
