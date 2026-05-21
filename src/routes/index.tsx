@@ -38,7 +38,7 @@ function CompassArt() {
   return (
     <div className="relative w-full h-full flex items-center justify-center -mx-32">
       <img 
-        src="/images/testenofwerktlol.png" 
+        src="public/images/Logo_homepagina.png" 
         alt="Keuzekompas Logo" 
         className="w-[100vw] h-auto"
       />
@@ -46,28 +46,4 @@ function CompassArt() {
   );
 }
 
-function Arrow({ className, color, rotate }: { className?: string; color: string; rotate: number }) {
-  return (
-    <svg
-      width="60"
-      height="100"
-      viewBox="0 0 60 100"
-      className={className}
-      style={{ transform: `rotate(${rotate}deg)` }}
-    >
-      <path d="M30 0 L60 40 L42 40 L42 100 L18 100 L18 40 L0 40 Z" fill={color} />
-    </svg>
-  );
-}
 
-function Star() {
-  return (
-    <svg width="160" height="160" viewBox="0 0 160 160">
-      <path
-        d="M80 0 L96 56 L160 64 L104 88 L120 160 L80 116 L40 160 L56 88 L0 64 L64 56 Z"
-        fill="var(--ink)"
-      />
-      <circle cx="80" cy="80" r="9" fill="var(--cream)" />
-    </svg>
-  );
-}
