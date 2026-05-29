@@ -41,7 +41,7 @@ function CompassArt() {
       <img 
         src="public/images/Logo_homepagina.png" 
         alt="Keuzekompas Logo" 
-        className="w-[100vw] h-auto"
+        style={{ width: "300px", border: "2px solid red" }}
       />
     </div>
   );
