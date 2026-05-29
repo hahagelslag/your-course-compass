@@ -39,7 +39,7 @@ function CompassArt() {
   return (
     <div className="relative w-full h-full flex items-center justify-center -mx-32">
       <img 
-        src="public/images/Logo_homepagina.png" 
+        src="/images/Logo_homepagina.png" 
         alt="Keuzekompas Logo" 
         style={{ width: "300px", border: "2px solid red" }}
       />
