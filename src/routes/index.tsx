@@ -37,13 +37,13 @@ function Index() {
 
 function CompassArt() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center -mx-32">
-      <img 
-        src="/images/Logo_homepagina.png" 
-        alt="Keuzekompas Logo" 
-        style={{ width: "300px", border: "2px solid red" }}
-      />
-    </div>
+<div className="relative w-full h-full flex items-center justify-center -mx-32">
+  <img 
+    src="/images/Logo_homepagina.png" 
+    alt="Keuzekompas Logo" 
+    className="w-[100vw] h-auto"
+  />
+</div>
   );
 }
 
