@@ -8,10 +8,15 @@ export const Route = createFileRoute("/reality-check")({
   component: RealityCheck,
 });
 
+type ReflectionCategory = "interesses" | "skills" | "leerdoelen" | "motivatie";
+
 function RealityCheck() {
   const navigate = useNavigate();
   const { state, resetRealityCheckCounter } = useCompass();
   const [mounted, setMounted] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<ReflectionCategory>(
+    "interesses"
+  );
 
   // Reset counter when component mounts so user can continue swiping
   useEffect(() => {
@@ -48,46 +53,37 @@ function RealityCheck() {
         {/* Header */}
         <div className="relative z-10 mb-8 text-center">
           <h1 className="text-3xl font-extrabold">Wat valt op?</h1>
-          <p className="mt-4 text-xs font-bold uppercase tracking-wider text-ink/70">
-            Wat zei dat je belangrijk vond
+          <p className="mt-4 text-sm text-ink/70">
+            Je hebt {likedMinors.length} minoren bewaard. Tijd voor een korte check.
           </p>
         </div>
 
-        {/* Profile Summary Cards */}
-        <div className="space-y-4 mb-8 relative z-10">
-          <ProfileCard
-            title="Je interesses"
-            tags={state.interesses}
-            color="mint"
-          />
-          <ProfileCard
-            title="Je sterke punten"
-            tags={state.skills}
-            color="indigo"
-          />
-          <ProfileCard
-            title="Je leerdoelen"
-            tags={state.leerdoelen}
-            color="orange"
-          />
-          <ProfileCard
-            title="Je motivatie"
-            tags={state.motivatie}
-            color="sun"
-          />
-        </div>
+        {/* Insight Card */}
+        {insight && (
+          <div
+            className="rounded-3xl p-6 mb-8 text-white relative z-10"
+            style={{ background: "#FFC107" }}
+          >
+            <p className="text-xs font-bold uppercase tracking-wider text-amber-950 mb-3">
+              Inzicht
+            </p>
+            <p className="text-base font-semibold leading-relaxed text-amber-950">
+              {insight}
+            </p>
+          </div>
+        )}
 
         {/* Actual choices from swiping */}
         <div className="surface p-6 rounded-3xl mb-8 relative z-10">
           <p className="text-xs font-bold uppercase tracking-wider text-ink/70 mb-4">
-            Welke thema's je daadwerkelijk koos
+            Thema's die je koos
           </p>
           <div className="flex flex-wrap gap-2">
             {themes.length > 0 ? (
               themes.map((theme) => (
                 <span
                   key={theme}
-                  className="inline-flex items-center rounded-pill bg-ink text-white px-4 py-2 text-sm font-semibold"
+                  className="inline-flex items-center rounded-pill bg-primary text-white px-4 py-2 text-sm font-semibold"
                 >
                   {theme}
                 </span>
@@ -100,21 +96,58 @@ function RealityCheck() {
           </div>
         </div>
 
-        {/* Insight Card */}
-        {insight && (
-          <div
-            className="rounded-3xl p-6 mb-8 text-white relative z-10"
-            style={{ background: "#FF6C3C" }}
-          >
-            <p className="text-base font-semibold leading-relaxed">
-              {insight}
-            </p>
+        {/* Reflection Categories - Tab Layout */}
+        <div className="surface p-6 rounded-3xl mb-8 relative z-10">
+          <p className="text-xs font-bold uppercase tracking-wider text-ink/70 mb-4">
+            Jouw reflectie
+          </p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            <CategoryBadge
+              label="INTERESSES"
+              isActive={selectedCategory === "interesses"}
+              onClick={() => setSelectedCategory("interesses")}
+              color="mint"
+            />
+            <CategoryBadge
+              label="SKILLS"
+              isActive={selectedCategory === "skills"}
+              onClick={() => setSelectedCategory("skills")}
+              color="indigo"
+            />
+            <CategoryBadge
+              label="DOELEN"
+              isActive={selectedCategory === "leerdoelen"}
+              onClick={() => setSelectedCategory("leerdoelen")}
+              color="orange"
+            />
+            <CategoryBadge
+              label="MOTIVATIE"
+              isActive={selectedCategory === "motivatie"}
+              onClick={() => setSelectedCategory("motivatie")}
+              color="sun"
+            />
           </div>
-        )}
+
+          {/* Selected Category Content */}
+          <div className="pt-4 border-t border-ink/10">
+            {selectedCategory === "interesses" && (
+              <CategoryContent title="JE INTERESSES" tags={state.interesses} color="mint" />
+            )}
+            {selectedCategory === "skills" && (
+              <CategoryContent title="JE STERKE PUNTEN" tags={state.skills} color="indigo" />
+            )}
+            {selectedCategory === "leerdoelen" && (
+              <CategoryContent title="JE LEERDOELEN" tags={state.leerdoelen} color="orange" />
+            )}
+            {selectedCategory === "motivatie" && (
+              <CategoryContent title="JE MOTIVATIE" tags={state.motivatie} color="sun" />
+            )}
+          </div>
+        </div>
 
         {/* Action Buttons */}
         <div className="space-y-3 relative z-10">
-          <p className="text-xs font-bold uppercase tracking-wider text-ink/70 mb-4 text-center">
+          <p className="text-xs font-bold uppercase tracking-wider text-ink/70 mb-4 text-left">
             Hoe wil je verder?
           </p>
 
@@ -141,7 +174,46 @@ function RealityCheck() {
   );
 }
 
-function ProfileCard({
+function CategoryBadge({
+  label,
+  isActive,
+  onClick,
+  color,
+}: {
+  label: string;
+  isActive: boolean;
+  onClick: () => void;
+  color: "mint" | "indigo" | "orange" | "sun";
+}) {
+  const colorMap = {
+    mint: "bg-mint text-white",
+    indigo: "bg-indigo text-white",
+    orange: "bg-orange text-white",
+    sun: "bg-sun text-white",
+  };
+
+  const darkColorMap = {
+    mint: "bg-mint text-white brightness-90",
+    indigo: "bg-indigo text-white brightness-90",
+    orange: "bg-orange text-white brightness-90",
+    sun: "bg-sun text-white brightness-90",
+  };
+
+  const baseClasses =
+    "px-3 py-1.5 rounded-full font-semibold text-xs cursor-pointer transition-colors";
+  const activeClasses = isActive ? darkColorMap[color] : colorMap[color];
+
+  return (
+    <button
+      onClick={onClick}
+      className={`${baseClasses} ${activeClasses}`}
+    >
+      {label}
+    </button>
+  );
+}
+
+function CategoryContent({
   title,
   tags,
   color,
@@ -151,21 +223,24 @@ function ProfileCard({
   color: "mint" | "indigo" | "orange" | "sun";
 }) {
   const colorMap = {
-    mint: "chip-mint",
-    indigo: "chip-indigo",
-    orange: "chip-orange",
-    sun: "chip-sun",
+    mint: "bg-mint text-white",
+    indigo: "bg-indigo text-white",
+    orange: "bg-orange text-white",
+    sun: "bg-sun text-white",
   };
 
   return (
-    <div className="surface p-6 rounded-3xl">
+    <div>
       <p className="text-xs font-bold uppercase tracking-wider text-ink/70 mb-4">
         {title}
       </p>
       <div className="flex flex-wrap gap-2">
         {tags.length > 0 ? (
           tags.map((tag) => (
-            <span key={tag} className={`chip ${colorMap[color]} text-sm font-semibold`}>
+            <span
+              key={tag}
+              className={`inline-flex items-center rounded-pill ${colorMap[color]} px-4 py-2 text-sm font-semibold`}
+            >
               {tag}
             </span>
           ))
