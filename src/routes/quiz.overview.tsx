@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PhoneShell } from "@/components/PhoneShell";
+import { PhoneShell, TopBar } from "@/components/PhoneShell";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 
 export const Route = createFileRoute("/quiz/overview")({
@@ -11,6 +12,15 @@ function QuizOverview() {
 
   return (
     <PhoneShell bg="bg-background">
+      <TopBar
+        back="/quiz/motivatie"
+        right={
+          <HelpButton
+            title="JOUW PROFIEL"
+            description="Dit is een samenvatting van je antwoorden. Nu kun je gaan verkennen om minoren te vinden die bij jou passen."
+          />
+        }
+      />
       <div className="px-5 pt-5 pb-32">
         <div className="surface p-6 text-center">
           <h1 className="text-3xl font-extrabold">Jouw profiel</h1>

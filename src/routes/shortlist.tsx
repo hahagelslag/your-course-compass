@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneShell, TopBar } from "@/components/PhoneShell";
 import { BottomNav } from "@/components/BottomNav";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 import { MINORS } from "@/lib/minors";
 
@@ -47,6 +48,12 @@ function Shortlist() {
               </Link>
             )}
           </div>
+        }
+        right={
+          <HelpButton
+            title="JOUW SHORTLIST"
+            description="Dit zijn je favoriete minoren. Je kunt ze hier vergelijken om uiteindelijk je beste keuze te maken."
+          />
         }
       />
 

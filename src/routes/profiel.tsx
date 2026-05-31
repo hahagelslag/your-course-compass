@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PhoneShell } from "@/components/PhoneShell";
+import { PhoneShell, TopBar } from "@/components/PhoneShell";
 import { BottomNav } from "@/components/BottomNav";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 
 export const Route = createFileRoute("/profiel")({
@@ -12,6 +13,15 @@ function Profiel() {
 
   return (
     <PhoneShell bg="bg-background">
+      <TopBar
+        back="/"
+        right={
+          <HelpButton
+            title="JOUW PROFIEL"
+            description="Dit is je samenvatting. Je kunt altijd terugkomen om je antwoorden aan te passen."
+          />
+        }
+      />
       <div className="px-5 pt-5 pb-8">
         <div className="surface p-6 text-center">
           <h1 className="text-3xl font-extrabold">Jouw profiel</h1>

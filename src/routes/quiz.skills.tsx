@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useSearch } from "@tanstack/react-router";
 import { PhoneShell, TopBar, StepHeader, StickyFooter } from "@/components/PhoneShell";
 import { TagInput } from "@/components/TagInput";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 import { SUGGESTIONS } from "@/lib/minors";
 
@@ -14,7 +15,16 @@ function Page() {
   const backLink = search.from === "profiel" ? "/quiz/interesses?from=profiel" : "/quiz/interesses";
   return (
     <PhoneShell>
-      <TopBar back={backLink} progress={2 / 4} />
+      <TopBar
+        back={backLink}
+        progress={2 / 4}
+        right={
+          <HelpButton
+            title="SKILLS"
+            description="Welke vaardigheden gebruik je graag tijdens projecten? Dit helpt ons minoren te vinden die aansluiten op jouw sterktes."
+          />
+        }
+      />
       <StepHeader step={2} total={4} title="Skills" subtitle="Welke vaardigheden gebruik je graag tijdens projecten?" />
       <div className="px-5 mt-6 pb-32">
         <TagInput

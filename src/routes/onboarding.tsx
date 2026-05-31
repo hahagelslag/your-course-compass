@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PhoneShell, TopBar, StickyFooter } from "@/components/PhoneShell";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 
 export const Route = createFileRoute("/onboarding")({
@@ -12,7 +13,15 @@ function Onboarding() {
 
   return (
     <PhoneShell>
-      <TopBar back="/" />
+      <TopBar
+        back="/"
+        right={
+          <HelpButton
+            title="OVER JOU"
+            description="Vertel ons wat meer over jezelf zodat we de juiste minoren voor jou kunnen vinden."
+          />
+        }
+      />
       <div className="px-5 mt-4">
         <h1 className="text-3xl font-extrabold">Over jou</h1>
         <p className="mt-2 text-muted-foreground">

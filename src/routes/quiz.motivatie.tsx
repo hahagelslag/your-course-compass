@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useSearch } from "@tanstack/react-router";
 import { PhoneShell, TopBar, StepHeader, StickyFooter } from "@/components/PhoneShell";
 import { TagInput } from "@/components/TagInput";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 import { SUGGESTIONS } from "@/lib/minors";
 
@@ -14,7 +15,16 @@ function Page() {
   const backLink = search.from === "profiel" ? "/quiz/leerdoelen?from=profiel" : "/quiz/leerdoelen";
   return (
     <PhoneShell>
-      <TopBar back={backLink} progress={4 / 4} />
+      <TopBar
+        back={backLink}
+        progress={4 / 4}
+        right={
+          <HelpButton
+            title="MOTIVATIE"
+            description="Wat drijft je naar een bepaalde minor? Dit helpt ons minoren te vinden die je inspireren."
+          />
+        }
+      />
       <StepHeader step={4} total={4} title="Motivatie" subtitle="Wat vind jij belangrijk in een keuzevak of minor?" />
       <div className="px-5 mt-6 pb-32">
         <TagInput

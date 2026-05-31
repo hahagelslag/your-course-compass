@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { PhoneShell } from "@/components/PhoneShell";
+import { PhoneShell, TopBar } from "@/components/PhoneShell";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 import { MINORS } from "@/lib/minors";
 import { useEffect, useState, useMemo } from "react";
@@ -49,6 +50,15 @@ function RealityCheck() {
 
   return (
     <PhoneShell bg="bg-background">
+      <TopBar
+        back="/verken"
+        right={
+          <HelpButton
+            title="WAT VALT OP?"
+            description="Hier zie je een overzicht van je keuzes. Je kunt je antwoorden altijd nog aanpassen via 'Pas mijn reflectie aan'."
+          />
+        }
+      />
       <div className="px-5 pt-5 pb-12 relative">
         {/* Header */}
         <div className="relative z-10 mb-8 text-center">

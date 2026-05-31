@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PhoneShell, TopBar } from "@/components/PhoneShell";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 
 export const Route = createFileRoute("/start-mode")({
@@ -12,7 +13,15 @@ function StartMode() {
 
   return (
     <PhoneShell>
-      <TopBar back="/onboarding" />
+      <TopBar
+        back="/onboarding"
+        right={
+          <HelpButton
+            title="HOE WIL JE BEGINNEN?"
+            description="Kies de manier die het beste bij jou past. Je kunt je keuze later altijd nog aanpassen."
+          />
+        }
+      />
       <div className="px-5 mt-4">
         <h1 className="text-3xl font-extrabold leading-tight">Hoe wil je beginnen?</h1>
         <p className="mt-2 text-muted-foreground">

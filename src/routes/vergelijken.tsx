@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneShell, TopBar } from "@/components/PhoneShell";
 import { BottomNav } from "@/components/BottomNav";
+import { HelpButton } from "@/components/HelpButton";
 import { useCompass } from "@/lib/compass-store";
 import { MINORS, type Minor } from "@/lib/minors";
 
@@ -56,7 +57,15 @@ function Vergelijken() {
   if (!left || !right) {
     return (
       <PhoneShell bg="bg-background">
-        <TopBar back="/shortlist" />
+        <TopBar
+          back="/shortlist"
+          right={
+            <HelpButton
+              title="VERGELIJKEN"
+              description="Hier kun je je minoren tegen elkaar afzetten om de beste keuze te maken."
+            />
+          }
+        />
         <div className="px-5 pt-5">
           <h1 className="text-3xl font-extrabold">Vergelijken</h1>
           <div className="surface p-8 text-center mt-6">
@@ -75,7 +84,15 @@ function Vergelijken() {
 
   return (
     <PhoneShell bg="bg-background">
-      <TopBar back="/shortlist" />
+      <TopBar
+        back="/shortlist"
+        right={
+          <HelpButton
+            title="VERGELIJKEN"
+            description="Hier kun je je minoren tegen elkaar afzetten om de beste keuze te maken."
+          />
+        }
+      />
       <div className="px-5 pt-5 pb-8">
         {/* Header */}
         <div>
