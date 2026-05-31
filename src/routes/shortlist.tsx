@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Trash2, GitCompare, RotateCcw } from "lucide-react";
+import { Heart, Trash2, GitCompare, RotateCcw, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneShell, TopBar } from "@/components/PhoneShell";
@@ -30,18 +30,19 @@ function Shortlist() {
     <PhoneShell bg="bg-background">
       <TopBar
         right={
-          <div className="ml-auto flex gap-2">
+          <div className="flex gap-2">
             {disliked.length > 0 && (
               <button 
                 onClick={() => setShowTrash(true)}
-                className="icon-btn !bg-muted-foreground" 
+                className="icon-btn !bg-slate-700" 
                 aria-label="Prullenbak"
               >
                 <Trash2 size={18} />
               </button>
             )}
             {liked.length >= 2 && (
-              <Link to="/vergelijken" className="icon-btn !bg-orange" aria-label="Vergelijken">
+              <Link to="/vergelijken" className="!bg-orange rounded-full px-5 py-2 flex items-center gap-2 font-semibold text-sm text-white hover:bg-orange/90 transition-colors" aria-label="Vergelijken">
+                <span>Vergelijken</span>
                 <GitCompare size={18} />
               </Link>
             )}
@@ -82,32 +83,42 @@ function Shortlist() {
                   </div>
                 )}
                 <Link to="/minor/$id" params={{ id: m.id }} className="block">
-                  <div className="flex gap-4 p-4">
-                    <div
-                      className="w-20 h-20 rounded-2xl shrink-0"
-                      style={{ background: m.image }}
-                    />
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-extrabold text-lg leading-tight">{m.title}</h3>
-                      <p className="text-xs text-muted-foreground line-clamp-1">{m.tagline}</p>
-                      <div className="mt-2 flex flex-wrap gap-1.5">
-                        {m.tags.slice(0, 2).map((t) => (
-                          <span key={t.label} className={`chip chip-${t.color} !py-1 !px-2.5 !text-xs`}>
-                            {t.label}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="flex gap-5 p-5 relative">
+                    {/* Trash button top-right */}
                     <button
                       onClick={(e) => {
                         e.preventDefault();
                         dislike(m.id);
                       }}
-                      className="self-start text-muted-foreground hover:text-destructive transition-colors p-1"
+                      className="absolute top-5 right-5 text-muted-foreground hover:text-destructive transition-colors p-1.5"
                       aria-label="Verwijderen"
                     >
-                      <Trash2 size={18} />
+                      <Trash2 size={20} />
                     </button>
+
+                    {/* Image */}
+                    <div
+                      className="w-28 h-28 rounded-2xl shrink-0"
+                      style={{ background: m.image }}
+                    />
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0 pr-8">
+                      <h3 className="font-extrabold text-xl leading-tight">{m.title}</h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 mt-1">{m.tagline}</p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {m.tags.slice(0, 2).map((t) => (
+                          <span key={t.label} className={`chip chip-${t.color} !py-1.5 !px-3 !text-sm`}>
+                            {t.label}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Chevron right */}
+                    <div className="absolute bottom-5 right-5 text-muted-foreground">
+                      <ChevronRight size={24} />
+                    </div>
                   </div>
                 </Link>
               </div>
