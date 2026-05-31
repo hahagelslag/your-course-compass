@@ -21,24 +21,27 @@ export function PhoneShell({
 export function TopBar({
   back,
   progress,
+  left,
   right,
 }: {
   back?: string | (() => void);
   progress?: number; // 0..1
+  left?: ReactNode;
   right?: ReactNode;
 }) {
   return (
     <div className="flex items-center gap-4 px-5 pt-6 pb-2">
-      {back !== undefined &&
-        (typeof back === "string" ? (
-          <Link to={back} className="icon-btn shrink-0" aria-label="Terug">
-            <ArrowLeft size={20} />
-          </Link>
-        ) : (
-          <button onClick={back} className="icon-btn shrink-0" aria-label="Terug">
-            <ArrowLeft size={20} />
-          </button>
-        ))}
+      {left ||
+        (back !== undefined &&
+          (typeof back === "string" ? (
+            <Link to={back} className="icon-btn shrink-0" aria-label="Terug">
+              <ArrowLeft size={20} />
+            </Link>
+          ) : (
+            <button onClick={back} className="icon-btn shrink-0" aria-label="Terug">
+              <ArrowLeft size={20} />
+            </button>
+          )))}
       {progress !== undefined && (
         <div className="flex-1 h-2 rounded-pill bg-secondary overflow-hidden">
           <div
@@ -50,6 +53,7 @@ export function TopBar({
           />
         </div>
       )}
+      {!progress && <div className="flex-1" />}
       {right}
     </div>
   );

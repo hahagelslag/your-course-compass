@@ -23,7 +23,7 @@ function StartMode() {
           <button
             onClick={() => {
               set("mode", "reflect");
-              nav({ to: "/quiz/interesses" });
+              nav({ to: "/reflecteer-intro" });
             }}
             className="relative flex flex-col justify-start items-start w-full overflow-hidden rounded-3xl text-left p-6 h-80 transition-transform active:scale-[0.98]"
             style={{ background: "linear-gradient(160deg, var(--mint), oklch(0.78 0.1 165))" }}

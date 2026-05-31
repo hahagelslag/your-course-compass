@@ -14,6 +14,7 @@ import { Route as VerkenRouteImport } from './routes/verken'
 import { Route as VergelijkenRouteImport } from './routes/vergelijken'
 import { Route as StartModeRouteImport } from './routes/start-mode'
 import { Route as ShortlistRouteImport } from './routes/shortlist'
+import { Route as ReflecteerIntroRouteImport } from './routes/reflecteer-intro'
 import { Route as RealityCheckRouteImport } from './routes/reality-check'
 import { Route as ProfielRouteImport } from './routes/profiel'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
@@ -48,6 +49,11 @@ const StartModeRoute = StartModeRouteImport.update({
 const ShortlistRoute = ShortlistRouteImport.update({
   id: '/shortlist',
   path: '/shortlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReflecteerIntroRoute = ReflecteerIntroRouteImport.update({
+  id: '/reflecteer-intro',
+  path: '/reflecteer-intro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RealityCheckRoute = RealityCheckRouteImport.update({
@@ -106,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/profiel': typeof ProfielRoute
   '/reality-check': typeof RealityCheckRoute
+  '/reflecteer-intro': typeof ReflecteerIntroRoute
   '/shortlist': typeof ShortlistRoute
   '/start-mode': typeof StartModeRoute
   '/vergelijken': typeof VergelijkenRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/profiel': typeof ProfielRoute
   '/reality-check': typeof RealityCheckRoute
+  '/reflecteer-intro': typeof ReflecteerIntroRoute
   '/shortlist': typeof ShortlistRoute
   '/start-mode': typeof StartModeRoute
   '/vergelijken': typeof VergelijkenRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/profiel': typeof ProfielRoute
   '/reality-check': typeof RealityCheckRoute
+  '/reflecteer-intro': typeof ReflecteerIntroRoute
   '/shortlist': typeof ShortlistRoute
   '/start-mode': typeof StartModeRoute
   '/vergelijken': typeof VergelijkenRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/profiel'
     | '/reality-check'
+    | '/reflecteer-intro'
     | '/shortlist'
     | '/start-mode'
     | '/vergelijken'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/profiel'
     | '/reality-check'
+    | '/reflecteer-intro'
     | '/shortlist'
     | '/start-mode'
     | '/vergelijken'
@@ -194,6 +205,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/profiel'
     | '/reality-check'
+    | '/reflecteer-intro'
     | '/shortlist'
     | '/start-mode'
     | '/vergelijken'
@@ -212,6 +224,7 @@ export interface RootRouteChildren {
   OnboardingRoute: typeof OnboardingRoute
   ProfielRoute: typeof ProfielRoute
   RealityCheckRoute: typeof RealityCheckRoute
+  ReflecteerIntroRoute: typeof ReflecteerIntroRoute
   ShortlistRoute: typeof ShortlistRoute
   StartModeRoute: typeof StartModeRoute
   VergelijkenRoute: typeof VergelijkenRoute
@@ -260,6 +273,13 @@ declare module '@tanstack/react-router' {
       path: '/shortlist'
       fullPath: '/shortlist'
       preLoaderRoute: typeof ShortlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reflecteer-intro': {
+      id: '/reflecteer-intro'
+      path: '/reflecteer-intro'
+      fullPath: '/reflecteer-intro'
+      preLoaderRoute: typeof ReflecteerIntroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reality-check': {
@@ -340,6 +360,7 @@ const rootRouteChildren: RootRouteChildren = {
   OnboardingRoute: OnboardingRoute,
   ProfielRoute: ProfielRoute,
   RealityCheckRoute: RealityCheckRoute,
+  ReflecteerIntroRoute: ReflecteerIntroRoute,
   ShortlistRoute: ShortlistRoute,
   StartModeRoute: StartModeRoute,
   VergelijkenRoute: VergelijkenRoute,
