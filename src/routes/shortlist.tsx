@@ -29,7 +29,7 @@ function Shortlist() {
   return (
     <PhoneShell bg="bg-background">
       <TopBar
-        right={
+        left={
           <div className="flex gap-2">
             {disliked.length > 0 && (
               <button 
