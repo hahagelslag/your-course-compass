@@ -20,8 +20,8 @@ function Page() {
         progress={3 / 4}
         right={
           <HelpButton
-            title="LEERDOELEN"
-            description="Wat mis je nog in je huidige curriculum? Dit helpt ons minoren te vinden die je verder ontwikkelen."
+            title="HULP NODIG?"
+            description="Denk aan onderwerpen, vaardigheden of soorten projecten waar je nieuwsgierig naar bent."
           />
         }
       />
@@ -37,7 +37,7 @@ function Page() {
         />
       </div>
       <StickyFooter>
-        <Link to={search.from === "profiel" ? "/quiz/motivatie?from=profiel" : "/quiz/motivatie"} className={`btn-pill btn-primary w-full ${state.leerdoelen.length === 0 ? "opacity-50 pointer-events-none" : ""}`}>
+        <Link to="/quiz/motivatie" search={search.from === "profiel" ? { from: "profiel" } : {}} className={`btn-pill btn-primary w-full ${state.leerdoelen.length === 0 ? "opacity-50 pointer-events-none" : ""}`}>
           Verder
         </Link>
       </StickyFooter>

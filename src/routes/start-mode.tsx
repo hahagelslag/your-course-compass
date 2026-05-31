@@ -17,8 +17,8 @@ function StartMode() {
         back="/onboarding"
         right={
           <HelpButton
-            title="HOE WIL JE BEGINNEN?"
-            description="Kies de manier die het beste bij jou past. Je kunt je keuze later altijd nog aanpassen."
+            title="KAN IK LATER WISSELEN?"
+            description="Ja, je kunt later altijd opnieuw beginnen en een andere route kiezen."
           />
         }
       />

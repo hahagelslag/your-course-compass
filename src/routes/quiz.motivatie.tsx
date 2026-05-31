@@ -20,8 +20,8 @@ function Page() {
         progress={4 / 4}
         right={
           <HelpButton
-            title="MOTIVATIE"
-            description="Wat drijft je naar een bepaalde minor? Dit helpt ons minoren te vinden die je inspireren."
+            title="HULP NODIG?"
+            description="Denk aan wat jou energie geeft tijdens projecten, samenwerken of leren."
           />
         }
       />

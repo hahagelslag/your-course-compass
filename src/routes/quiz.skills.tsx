@@ -20,8 +20,8 @@ function Page() {
         progress={2 / 4}
         right={
           <HelpButton
-            title="SKILLS"
-            description="Welke vaardigheden gebruik je graag tijdens projecten? Dit helpt ons minoren te vinden die aansluiten op jouw sterktes."
+            title="HULP NODIG?"
+            description="Het hoeven geen perfecte of professionele skills te zijn. Denk vooral aan wat je leuk vindt om tijdens je studie te doen."
           />
         }
       />
@@ -37,7 +37,7 @@ function Page() {
         />
       </div>
       <StickyFooter>
-        <Link to={search.from === "profiel" ? "/quiz/leerdoelen?from=profiel" : "/quiz/leerdoelen"} className={`btn-pill btn-primary w-full ${state.skills.length === 0 ? "opacity-50 pointer-events-none" : ""}`}>
+        <Link to="/quiz/leerdoelen" search={search.from === "profiel" ? { from: "profiel" } : {}} className={`btn-pill btn-primary w-full ${state.skills.length === 0 ? "opacity-50 pointer-events-none" : ""}`}>
           Verder
         </Link>
       </StickyFooter>

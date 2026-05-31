@@ -17,8 +17,8 @@ function Onboarding() {
         back="/"
         right={
           <HelpButton
-            title="OVER JOU"
-            description="Vertel ons wat meer over jezelf zodat we de juiste minoren voor jou kunnen vinden."
+            title="WAAROM VRAGEN WE DIT?"
+            description="We gebruiken deze gegevens om minoren te tonen die relevant zijn voor jouw opleiding en studiejaar."
           />
         }
       />

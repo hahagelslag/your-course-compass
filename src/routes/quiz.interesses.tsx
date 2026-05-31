@@ -20,8 +20,8 @@ function Page() {
         progress={1 / 4}
         right={
           <HelpButton
-            title="INTERESSES"
-            description="Welke onderwerpen binnen je huidige studie spreken je aan? Dit helpt ons minoren te vinden die bij je passen."
+            title="HULP NODIG?"
+            description="Denk aan projecten, vakken of opdrachten die je leuk vond tijdens je studie."
           />
         }
       />
