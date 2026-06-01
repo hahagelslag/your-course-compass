@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PhoneShell, TopBar } from "@/components/PhoneShell";
 import { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, SkipForward } from "lucide-react";
 
 export const Route = createFileRoute("/reflecteer-intro")({
   component: ReflecteerIntro,
@@ -86,9 +86,10 @@ function ReflecteerIntro() {
         right={
           <button
             onClick={handleSkip}
-            className="text-sm font-semibold px-4 py-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+            className="text-sm font-semibold px-4 py-2 rounded-full bg-muted hover:bg-muted/80 transition-colors flex items-center gap-2"
           >
             Overslaan
+            <SkipForward size={16} />
           </button>
         }
       />
