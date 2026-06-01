@@ -51,8 +51,8 @@ function Shortlist() {
         }
         right={
           <HelpButton
-            title="JOUW SHORTLIST"
-            description="Dit zijn je favoriete minoren. Je kunt ze hier vergelijken om uiteindelijk je beste keuze te maken."
+            title="WAT IS EEN SHORTLIST?"
+            description="Minoren die je naar rechts swipet, worden hier opgeslagen. Vanaf twee opgeslagen minoren kun je ze vergelijken via de vergelijkknop."
           />
         }
       />

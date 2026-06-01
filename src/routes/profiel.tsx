@@ -17,8 +17,8 @@ function Profiel() {
         back="/"
         right={
           <HelpButton
-            title="JOUW PROFIEL"
-            description="Dit is je samenvatting. Je kunt altijd terugkomen om je antwoorden aan te passen."
+            title="WAT ZIE IK HIER?"
+            description="Deze pagina is een overzicht van de reflectie die je hebt ingevuld. Het is altijd mogelijk om het profiel te wijzigen of om opnieuw te beginnen"
           />
         }
       />

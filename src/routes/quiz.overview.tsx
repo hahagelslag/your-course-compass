@@ -16,8 +16,8 @@ function QuizOverview() {
         back="/quiz/motivatie"
         right={
           <HelpButton
-            title="JOUW PROFIEL"
-            description="Dit is een samenvatting van je antwoorden. Nu kun je gaan verkennen om minoren te vinden die bij jou passen."
+            title="WAT GEBEURT HIER?"
+            description="Dit profiel geeft een overzicht van jouw ingevulde gegevens. Op basis hiervan gaat Keuzekompas minoren zoeken die mogelijk goed bij jou passen."
           />
         }
       />

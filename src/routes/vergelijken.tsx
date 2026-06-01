@@ -61,8 +61,8 @@ function Vergelijken() {
           back="/shortlist"
           right={
             <HelpButton
-              title="VERGELIJKEN"
-              description="Hier kun je je minoren tegen elkaar afzetten om de beste keuze te maken."
+              title="HOE WERKT DIT?" 
+              description="Vergelijk steeds twee minoren met elkaar en kies welke jou het meest aanspreekt. Open de kaarten voor meer informatie. Uiteindelijk blijft de minor over die het beste bij jou past."
             />
           }
         />
