@@ -16,6 +16,7 @@ export type CompassState = {
   seenVerkenIntro: boolean;
   likedSinceRealityCheck: number;
   battleChampion: string | null; // winner of battle tournament
+  currentVerkenIndex: number; // track position in verken card stack
 };
 
 const DEFAULT: CompassState = {
@@ -32,6 +33,7 @@ const DEFAULT: CompassState = {
   seenVerkenIntro: false,
   likedSinceRealityCheck: 0,
   battleChampion: null,
+  currentVerkenIndex: 0,
 };
 
 const Ctx = createContext<{
@@ -79,12 +81,14 @@ export function CompassProvider({ children }: { children: ReactNode }) {
             liked: Array.from(new Set([...state.liked, id])),
             disliked: state.disliked.filter((x) => x !== id),
             likedSinceRealityCheck: state.likedSinceRealityCheck + 1,
+            currentVerkenIndex: state.currentVerkenIndex + 1,
           }),
         dislike: (id) =>
           persist({
             ...state,
             disliked: Array.from(new Set([...state.disliked, id])),
             liked: state.liked.filter((x) => x !== id),
+            currentVerkenIndex: state.currentVerkenIndex + 1,
           }),
         reset: () => persist(DEFAULT),
         resetRealityCheckCounter: () =>

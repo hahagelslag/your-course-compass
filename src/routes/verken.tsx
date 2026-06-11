@@ -27,17 +27,14 @@ function Verken() {
     return null;
   }
 
-  const [idx, setIdx] = useState(0);
   const queue = MINORS;
+  const idx = state.currentVerkenIndex;
   const card = queue[idx];
-
-  const next = () => setIdx((i) => Math.min(i + 1, queue.length));
 
   const swipe = (dir: 1 | -1) => {
     if (!card) return;
     if (dir === 1) like(card.id);
     else dislike(card.id);
-    next();
   };
 
   return (

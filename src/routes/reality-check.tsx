@@ -169,7 +169,7 @@ function RealityCheck() {
           </button>
 
           <button className="btn-pill w-full font-semibold text-ink bg-gray-200 hover:bg-gray-300 transition-colors">
-            Toon opties dichter bij interesses
+            Toon opties dichter bij reflectie
           </button>
 
           <button
