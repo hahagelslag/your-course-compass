@@ -200,7 +200,7 @@ function BattleCard({ minor, onSelect }: { minor: Minor; onSelect: () => void; i
       className="surface p-4 rounded-2xl cursor-pointer hover:shadow-lg transition-shadow"
     >
       {/* Image */}
-      <div className="h-32 rounded-xl mb-3 relative overflow-hidden" style={{ background: minor.image }}>
+      <div className="h-32 rounded-xl mb-3 relative overflow-hidden" style={{ backgroundImage: `url('${minor.image}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         <div className="absolute bottom-2 left-2 text-xs font-bold bg-white/90 px-2 py-1 rounded-full">
           {minor.ec} EC
@@ -250,7 +250,7 @@ function CompareModal({
         exit={{ y: 400 }}
       >
         {/* Header Image */}
-        <div className="relative h-48 shrink-0" style={{ background: minor.image }}>
+        <div className="relative h-48 shrink-0" style={{ backgroundImage: `url('${minor.image}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
           <button
             onClick={onClose}
             className="absolute top-4 left-4 w-10 h-10 rounded-full bg-black/30 text-white flex items-center justify-center"

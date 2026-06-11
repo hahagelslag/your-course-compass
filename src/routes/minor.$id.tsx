@@ -34,7 +34,7 @@ function MinorDetail() {
       
       <div className="px-5 pt-5 pb-8">
         {/* Header Image */}
-        <div className="h-48 rounded-2xl mb-4 relative overflow-hidden" style={{ background: minor.image }}>
+        <div className="h-48 rounded-2xl mb-4 relative overflow-hidden" style={{ backgroundImage: `url('${minor.image}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           <button
             onClick={() => (isLiked ? dislike(minor.id) : like(minor.id))}
