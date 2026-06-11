@@ -4,7 +4,7 @@ export type Minor = {
   tagline: string;
   tags: { label: string; color: "mint" | "orange" | "sun" | "indigo" }[];
   about: string;
-  image: string; // gradient css
+  image: string; // image URL or CSS gradient
   docent: string;
   opleiding: string;
   thema: string;
@@ -33,7 +33,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Sluit je aan bij de Design Art Technology minor van Minerva Art Academy. Hier werken studenten uit verschillende disciplines samen aan werken die kunst, design en technologie combineren. Deze 30 ECTS module in artistieke technologieonderzoek is bedoeld voor tweedejaars studenten.\n\nStudenten uit alle richtingen zijn welkom — de mix van achtergronden creëert vruchtbare grond om op te groeien.",
-    image: "linear-gradient(135deg, oklch(0.45 0.15 320), oklch(0.55 0.2 25))",
+    image: "/images/Designart_kaart.jpg",
     docent: "Bjorn Eerkes",
     opleiding: "Autonome Beeldende Kunst",
     thema: "Kunstacademie",
@@ -58,7 +58,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Breng verhalen tot leven via geanimeteerde typografie, kinetische identiteit en interactieve videosystemen. Je collaboreert met verschillende disciplines om beweging te ontwerpen voor schermen in elke grootte.",
-    image: "linear-gradient(135deg, oklch(0.6 0.22 30), oklch(0.55 0.2 280))",
+    image: "/images/Motiongraphics_kaart.jpg",
     docent: "Lotte de Jong",
     opleiding: "Communication & Multimedia Design",
     thema: "Visuele communicatie",
@@ -83,7 +83,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Leer ruwe datasets vertalen naar heldere, persoonlijke verhalen. Combineer journalistieke nieuwsgierigheid met visualisatie en narratief design.",
-    image: "linear-gradient(135deg, oklch(0.45 0.18 250), oklch(0.7 0.16 80))",
+    image: "/images/Datastorytelling_kaart.jpg",
     docent: "Sanne Vermeer",
     opleiding: "Communicatie",
     thema: "Onderzoek & journalistiek",
@@ -109,7 +109,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Een interdisciplinaire minor waar tech, beleid en stedelijke vraagstukken samenkomen. Werk aan échte cases met gemeentes en bewoners.",
-    image: "linear-gradient(135deg, oklch(0.5 0.12 200), oklch(0.7 0.15 140))",
+    image: "/images/Smartcities_kaart.jpg",
     docent: "Pieter Klaassen",
     opleiding: "Built Environment",
     thema: "Stedelijke innovatie",
@@ -134,7 +134,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Van level-design tot narrative systems. Bouw speelbare prototypes en leer hoe je spelers raakt — emotioneel én mechanisch.",
-    image: "linear-gradient(135deg, oklch(0.4 0.18 290), oklch(0.7 0.2 50))",
+    image: "/images/Gameworlds_kaart.jpg",
     docent: "Kim Bakker",
     opleiding: "Game Development",
     thema: "Game & interactie",
@@ -160,7 +160,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Ontdek hoe je duurzame projecten kunt initiëren en schalen. Van conceptontwikkeling tot marktintroductie. Werk samen met bedrijven en NGO's aan échte cases.",
-    image: "linear-gradient(135deg, oklch(0.5 0.18 140), oklch(0.65 0.15 100))",
+    image: "/images/Sustainableinnovation_kaart.jpg",
     docent: "Maria Groenveld",
     opleiding: "Bedrijfskunde",
     thema: "Duurzaamheid & innovatie",
@@ -186,7 +186,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Leer strategische en tactische digital marketing: SEO, social media, content strategy en data-driven campaigns. Werk met echte klanten en merk je impact.",
-    image: "linear-gradient(135deg, oklch(0.55 0.2 25), oklch(0.6 0.18 280))",
+    image: "/images/Digitalmarketing_kaart.jpg",
     docent: "Tom Jansen",
     opleiding: "Marketing Communication",
     thema: "Digital & strategie",
@@ -212,7 +212,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Ontwerp interactieve digitale producten met focus op user experience. Van research tot prototype. Leer hoe gebruikers echt denken en waarom design-keuzes tellen.",
-    image: "linear-gradient(135deg, oklch(0.5 0.16 200), oklch(0.6 0.2 30))",
+    image: "/images/Interactiondesign_kaart.jpg",
     docent: "Linda Martens",
     opleiding: "Communication & Multimedia Design",
     thema: "Digital design",
@@ -238,7 +238,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Leer de fundamentals van data science: data wrangling, visualisatie en basis machine learning. Werk met echte datasets en bouw predictive models.",
-    image: "linear-gradient(135deg, oklch(0.4 0.2 240), oklch(0.65 0.18 200))",
+    image: "/images/Datascienceessentials_kaart.jpg",
     docent: "Robert Verschelling",
     opleiding: "Informatica",
     thema: "Data & AI",
@@ -264,7 +264,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Start je eigen sociale onderneming of verbeter bestaande. Focus op impact measurement, stakeholder engagement en business model innovation voor goede doelen.",
-    image: "linear-gradient(135deg, oklch(0.45 0.18 80), oklch(0.6 0.16 150))",
+    image: "/images/Socialentrepreneurship_kaart.jpg",
     docent: "Sophie Adriaansen",
     opleiding: "Maatschappelijk Werk & Dienstverlening",
     thema: "Impact & innovation",
@@ -290,7 +290,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Maak immersive installaties en interactive art. Werk met Arduino, 3D printing, AR/VR. Combineer code, design en kunstenaarschap in experimentele projecten.",
-    image: "linear-gradient(135deg, oklch(0.35 0.22 300), oklch(0.7 0.2 40))",
+    image: "/images/Creativetechnology_kaart.jpg",
     docent: "Marcus van den Berg",
     opleiding: "Fine Arts Technology",
     thema: "Art & interaction",
@@ -316,7 +316,7 @@ export const MINORS: Minor[] = [
     ],
     about:
       "Tackle healthcare challenges door design thinking en co-creation toe te passen. Werk met patiënten, artsen en technologen aan praktische oplossingen.",
-    image: "linear-gradient(135deg, oklch(0.5 0.18 10), oklch(0.65 0.2 350))",
+    image: "/images/Gezondheidszorginnovatie_kaart.jpg",
     docent: "Dr. Anna Wolfers",
     opleiding: "Health & Social Care",
     thema: "Healthcare & technology",

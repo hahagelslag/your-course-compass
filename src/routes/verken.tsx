@@ -90,7 +90,7 @@ function SwipeCard({ minor, onSwipe }: { minor: Minor; onSwipe: (dir: 1 | -1) =>
       {/* Header Image */}
       <div 
         className="h-48 relative flex-shrink-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/Designart_kaart.jpg')` }}
+        style={{ backgroundImage: `url('${minor.image}')` }}
       >
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
         <div className="absolute top-4 left-4 inline-flex items-center gap-2 bg-white rounded-pill px-3 py-1.5">

@@ -105,8 +105,8 @@ function Shortlist() {
 
                     {/* Image */}
                     <div
-                      className="w-28 h-28 rounded-2xl shrink-0"
-                      style={{ background: m.image }}
+                      className="w-28 h-28 rounded-2xl shrink-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url('${m.image}')` }}
                     />
 
                     {/* Content */}
