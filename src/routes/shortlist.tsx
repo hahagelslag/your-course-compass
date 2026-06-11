@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Trash2, GitCompare, RotateCcw, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneShell, TopBar } from "@/components/PhoneShell";
 import { BottomNav } from "@/components/BottomNav";
@@ -17,15 +17,8 @@ function Shortlist() {
   const [showTrash, setShowTrash] = useState(false);
   const liked = MINORS.filter((m) => state.liked.includes(m.id));
   const disliked = MINORS.filter((m) => state.disliked.includes(m.id));
+  const champion = state.battleChampion ? MINORS.find((m) => m.id === state.battleChampion) : null;
   const isChampion = (id: string) => state.battleChampion === id;
-
-  // Clear champion after showing
-  useEffect(() => {
-    if (state.battleChampion) {
-      const timer = setTimeout(() => setBattleChampion(null), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [state.battleChampion, setBattleChampion]);
 
   return (
     <PhoneShell bg="bg-background">
@@ -63,6 +56,41 @@ function Shortlist() {
           {liked.length} minor{liked.length === 1 ? "" : "en"} opgeslagen
         </p>
 
+        {/* Champion Section */}
+        {champion && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mt-6 p-5 rounded-3xl"
+            style={{ backgroundColor: "oklch(0.52 0.18 270)" }}
+          >
+            <h3 className="text-white font-extrabold mb-4">Jouw #1 keuze</h3>
+            <div className="bg-white rounded-2xl overflow-hidden">
+              <div className="flex gap-4 p-4">
+                {/* Image */}
+                <div
+                  className="w-32 h-32 rounded-xl shrink-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${champion.image}')` }}
+                />
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-extrabold text-lg leading-tight">{champion.title}</h4>
+                  <p className="text-xs text-muted-foreground mt-1">{champion.tagline}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {champion.tags.slice(0, 2).map((t) => (
+                      <span key={t.label} className={`chip chip-${t.color} !py-1 !px-2.5 !text-xs`}>
+                        {t.label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         <div className="mt-6 space-y-4 pb-8">
           {liked.length === 0 ? (
             <div className="surface p-10 text-center">
@@ -81,14 +109,8 @@ function Shortlist() {
             liked.map((m) => (
               <div 
                 key={m.id} 
-                className={`surface overflow-hidden transition-all ${isChampion(m.id) ? "ring-2 shadow-lg" : ""}`}
-                style={isChampion(m.id) ? { "--tw-ring-color": "oklch(0.52 0.18 270)" } as React.CSSProperties : {}}
+                className="surface overflow-hidden transition-all"
               >
-                {isChampion(m.id) && (
-                  <div className="px-4 py-2 flex items-center gap-2 text-white text-sm font-bold border-b" style={{ backgroundColor: "oklch(0.52 0.18 270)", borderColor: "oklch(0.52 0.18 270)" }}>
-                    Jouw #1 keuze
-                  </div>
-                )}
                 <Link to="/minor/$id" params={{ id: m.id }} className="block">
                   <div className="flex gap-5 p-5 relative">
                     {/* Trash button top-right */}
