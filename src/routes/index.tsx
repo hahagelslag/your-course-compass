@@ -8,10 +8,10 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background relative">
-      <div className="mx-auto w-full max-w-[440px] min-h-screen flex flex-col relative pb-80">
+    <div className="h-screen bg-background relative overflow-hidden">
+      <div className="mx-auto w-full max-w-[440px] h-screen flex flex-col relative">
         {/* Hero compass illustration */}
-        <div className="relative flex-1 flex items-center justify-center pt-0 pb-8 px-0">
+        <div className="relative flex-1 flex items-start justify-center px-0">
           <CompassArt />
         </div>
       </div>
@@ -37,13 +37,13 @@ function Index() {
 
 function CompassArt() {
   return (
-<div className="relative w-full h-full flex items-center justify-center -mx-32">
-  <img 
-    src="/images/Logo_homepagina.png" 
-    alt="Keuzekompas Logo" 
-    className="w-[100vw] h-auto"
-  />
-</div>
+    <div className="w-full flex items-center justify-center overflow-hidden">
+      <img 
+        src="/images/Logo_homepagina.png" 
+        alt="Keuzekompas Logo" 
+        className="w-full h-full object-contain"
+      />
+    </div>
   );
 }
 
