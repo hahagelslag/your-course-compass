@@ -255,7 +255,7 @@ export const MINORS: Minor[] = [
   },
   {
     id: "social-entrepreneurship",
-    title: "Social Entrepreneurship",
+    title: "Ondernemen",
     tagline: "Ondernemen met maatschappelijk impact",
     tags: [
       { label: "Ondernemerschap", color: "orange" },
@@ -281,7 +281,7 @@ export const MINORS: Minor[] = [
   },
   {
     id: "creative-technology",
-    title: "Creative Technology",
+    title: "Creatieve technologie",
     tagline: "Kunst en techniek samenbrengen",
     tags: [
       { label: "Programmeren", color: "mint" },
@@ -307,7 +307,7 @@ export const MINORS: Minor[] = [
   },
   {
     id: "healthcare-innovation",
-    title: "Healthcare Innovation",
+    title: "Gezondheidszorg innovatie",
     tagline: "Zorg van de toekomst ontwerpen",
     tags: [
       { label: "Onderzoeken", color: "indigo" },
