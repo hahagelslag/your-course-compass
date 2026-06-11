@@ -10,6 +10,8 @@ type Props = {
   placeholder?: string;
   tagBgColor?: string;
   heroBgColor?: string;
+  compassImage?: string;
+  compassOpacity?: number;
 };
 
 const CHIP_BG: Record<ChipColor, string> = {
@@ -26,7 +28,7 @@ const HERO_BG: Record<ChipColor, string> = {
   indigo: "bg-indigo",
 };
 
-export function TagInput({ value, onToggle, suggestions, color, placeholder = "Type en druk op enter…", tagBgColor, heroBgColor }: Props) {
+export function TagInput({ value, onToggle, suggestions, color, placeholder = "Type en druk op enter…", tagBgColor, heroBgColor, compassImage, compassOpacity = 0.3 }: Props) {
   const [draft, setDraft] = useState("");
 
   const onKey = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -44,7 +46,15 @@ export function TagInput({ value, onToggle, suggestions, color, placeholder = "T
         className={`relative rounded-3xl p-5 min-h-[120px] overflow-hidden ${!heroBgColor ? HERO_BG[color] : ""}`}
         style={heroBgColor ? { backgroundColor: heroBgColor } : {}}
       >
-        <div className="relative flex flex-wrap gap-2">
+        {compassImage && (
+          <img
+            src={compassImage}
+            alt=""
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 w-48 h-48 object-contain pointer-events-none"
+            style={{ opacity: compassOpacity }}
+          />
+        )}
+        <div className="relative flex flex-wrap gap-2 z-10">
           {value.length === 0 && (
             <p className="text-sm/relaxed font-medium text-ink/70">
               Tik hieronder een woord in of kies uit de inspiratie.

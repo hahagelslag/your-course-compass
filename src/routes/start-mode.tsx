@@ -35,9 +35,15 @@ function StartMode() {
               nav({ to: "/reflecteer-intro" });
             }}
             className="relative flex flex-col justify-start items-start w-full overflow-hidden rounded-3xl text-left p-6 h-80 transition-transform active:scale-[0.98]"
-            style={{ background: "linear-gradient(160deg, var(--mint), oklch(0.78 0.1 165))" }}
+            style={{ background: "linear-gradient(160deg, var(--mint), oklch(0.78 0.1 165))", zIndex: 10 }}
           >
-            <div className="absolute right-4 -bottom-2 w-28 h-44 rounded-t-full" style={{ background: "var(--orange)" }} />
+            <div className="absolute right-4 -bottom-2 w-28 h-44 rounded-t-full" style={{ background: "var(--orange)", zIndex: 20 }} />
+            <img
+              src="/images/LogoKblauw.png"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ opacity: 0.1 }}
+            />
             <h3 className="text-2xl font-extrabold text-white relative z-10">Reflecteer eerst</h3>
             <p className="mt-1 text-white italic relative z-10">"Ik weet al een beetje wat ik zoek"</p>
           </button>
@@ -47,7 +53,13 @@ function StartMode() {
             className="relative flex flex-col justify-start items-start w-full overflow-hidden rounded-3xl text-left p-6 h-80 transition-transform opacity-50 cursor-not-allowed"
             style={{ background: "linear-gradient(160deg, var(--sun), oklch(0.78 0.13 60))" }}
           >
-            <div className="absolute right-4 -bottom-2 w-28 h-44 rounded-t-full" style={{ background: "var(--orange)" }} />
+            <div className="absolute right-4 -bottom-2 w-28 h-44 rounded-t-full" style={{ background: "var(--orange)", zIndex: 20 }} />
+            <img
+              src="/images/Kompasoranje.png"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ opacity: 0.1 }}
+            />
             <h3 className="text-2xl font-extrabold text-white relative z-10">Verken eerst</h3>
             <p className="mt-1 text-white italic relative z-10">"Ik wil eerst ontdekken wat er is"</p>
           </button>

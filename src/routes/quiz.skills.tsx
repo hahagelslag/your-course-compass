@@ -34,6 +34,7 @@ function Page() {
           color="mint"
           tagBgColor="#575FCC"
           heroBgColor="#8ED8B4"
+          compassImage="/images/Kompasblauw.png"
         />
       </div>
       <StickyFooter>

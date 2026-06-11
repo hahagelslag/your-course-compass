@@ -15,6 +15,7 @@ const SLIDES = [
     description:
       "Te veel minoren, maar geen idee waar je moet beginnen? Keuzekompas helpt je stap voor stap bij het maken van een keuze die bij jou past.",
     color: "bg-mint",
+    image: "/images/Kompaswit.png",
   },
   {
     title: "Zo werkt het",
@@ -26,18 +27,21 @@ const SLIDES = [
       "Vergelijk je gekozen opties en vind jouw ideale minor",
     ],
     color: "bg-orange",
+    image: "/images/Route_icon.png",
   },
   {
     title: "Je hoeft niets in één keer",
     description:
       "Alles wordt automatisch bewaard. Je kunt op elk moment pauzeren terugkomen en je antwoorden aanpassen.",
     color: "bg-indigo",
+    image: "/images/Terugblik_icon.png",
   },
   {
     title: "Hulp nodig onderweg?",
     description:
       "Op elke pagina bevind zich rechtsboven een vraagteken over wat je daar kunt doen. Klik hierop wanneer je iets onduidelijk vind.",
     color: "bg-sun",
+    image: "/images/Vraagteken_icon.png",
   },
 ];
 
@@ -86,7 +90,8 @@ function ReflecteerIntro() {
         right={
           <button
             onClick={handleSkip}
-            className="text-sm font-semibold px-4 py-2 rounded-full bg-muted hover:bg-muted/80 transition-colors flex items-center gap-2"
+            className="text-sm font-semibold px-4 py-2 rounded-full transition-colors flex items-center gap-2"
+            style={{ backgroundColor: "#DBDCDF" }}
           >
             Overslaan
             <SkipForward size={16} />
@@ -100,10 +105,13 @@ function ReflecteerIntro() {
         <div className="flex-1 px-5 py-8 overflow-y-auto">
           {/* Icon Circle */}
           <div
-            className={`w-24 h-24 rounded-full ${slide.color} flex items-center justify-center mb-8 shrink-0 transition-colors duration-300`}
+            className={`w-24 h-24 rounded-full ${slide.color} flex items-center justify-center mb-8 shrink-0 transition-colors duration-300 overflow-hidden`}
           >
-            {/* Icon placeholder - will be replaced with actual icons later */}
-            <div className="w-12 h-12" />
+            <img
+              src={slide.image}
+              alt="Slide icon"
+              className="w-[55%] h-[55%] object-contain"
+            />
           </div>
 
           <h1 className="text-3xl font-extrabold leading-tight">
