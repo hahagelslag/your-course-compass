@@ -26,7 +26,7 @@ function Page() {
         }
       />
       <StepHeader step={3} total={4} title="Leerdoelen" subtitle="Wat mis je nog in je huidige curriculum?" />
-      <div className="px-5 mt-6 pb-32">
+      <div className="px-5 mt-6 pb-6">
         <TagInput
           value={state.leerdoelen}
           onToggle={(v) => toggle("leerdoelen", v)}

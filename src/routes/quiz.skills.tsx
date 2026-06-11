@@ -26,7 +26,7 @@ function Page() {
         }
       />
       <StepHeader step={2} total={4} title="Skills" subtitle="Welke vaardigheden gebruik je graag tijdens projecten?" />
-      <div className="px-5 mt-6 pb-32">
+      <div className="px-5 mt-6 pb-6">
         <TagInput
           value={state.skills}
           onToggle={(v) => toggle("skills", v)}

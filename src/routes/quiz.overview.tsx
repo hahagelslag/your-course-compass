@@ -21,7 +21,7 @@ function QuizOverview() {
           />
         }
       />
-      <div className="px-5 pt-5 pb-32">
+      <div className="px-5 pt-5 pb-6">
         <div className="surface p-6 text-center">
           <h1 className="text-3xl font-extrabold">Jouw profiel</h1>
           <p className="mt-2 text-muted-foreground">

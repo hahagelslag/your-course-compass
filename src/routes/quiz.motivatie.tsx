@@ -26,7 +26,7 @@ function Page() {
         }
       />
       <StepHeader step={4} total={4} title="Motivatie" subtitle="Wat vind jij belangrijk in een keuzevak of minor?" />
-      <div className="px-5 mt-6 pb-32">
+      <div className="px-5 mt-6 pb-6">
         <TagInput
           value={state.motivatie}
           onToggle={(v) => toggle("motivatie", v)}

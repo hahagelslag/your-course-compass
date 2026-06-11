@@ -31,7 +31,7 @@ function Page() {
         title="Intresses"
         subtitle="Welke onderwerpen binnen je huidige studie spreken je aan?"
       />
-      <div className="px-5 mt-6 pb-32">
+      <div className="px-5 mt-6 pb-6">
         <TagInput
           value={state.interesses}
           onToggle={(v) => toggle("interesses", v)}
