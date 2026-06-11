@@ -22,7 +22,7 @@ function StartMode() {
           />
         }
       />
-      <div className="px-5 mt-4">
+      <div className="px-5 mt-4 pb-12">
         <h1 className="text-3xl font-extrabold leading-tight">Hoe wil je beginnen?</h1>
         <p className="mt-2 text-muted-foreground">
           Selecteer de optie die het best bij jou past.
