@@ -25,7 +25,7 @@ function Page() {
           />
         }
       />
-      <StepHeader step={4} total={4} title="Motivatie" subtitle="Wat vind jij belangrijk in een keuzevak of minor?" />
+      <StepHeader step={4} total={4} title="Motivatie" subtitle="Wat vind jij belangrijk in een minor?" />
       <div className="px-5 mt-6 pb-6">
         <TagInput
           value={state.motivatie}
